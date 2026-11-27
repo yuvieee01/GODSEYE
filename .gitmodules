@@ -1,0 +1,3 @@
+[submodule "experiments/third_party/TrackEval"]
+	path = experiments/third_party/TrackEval
+	url = https://github.com/JonathonLuiten/TrackEval.git
