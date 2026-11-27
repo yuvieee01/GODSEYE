@@ -7,6 +7,7 @@ import {
   Database,
   ArrowRight,
   FileCode,
+  History,
 } from "lucide-react";
 import { PageHeader } from "../components/common/PageHeader";
 import { SectionCard } from "../components/common/SectionCard";
@@ -163,6 +164,24 @@ export const OperationsOverviewPage: React.FC = () => {
                 </div>
                 <p className="text-xs text-[#9CA3AF] mt-2 leading-relaxed">
                   Asynchronous worker queue monitoring, state transitions (QUEUED to COMPLETED), and raw telemetry downloads.
+                </p>
+              </Link>
+
+              <Link
+                to={ROUTES.HISTORY}
+                className="p-4 rounded-lg bg-[#1A2234] border border-[#374151] hover:border-cyan-500/70 hover:bg-[#202B42] transition-all group"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <History className="w-5 h-5 text-cyan-400" />
+                    <span className="font-semibold text-sm text-[#F9FAFB] group-hover:text-cyan-300">
+                      Processing History
+                    </span>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-[#6B7280] group-hover:text-cyan-400 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+                <p className="text-xs text-[#9CA3AF] mt-2 leading-relaxed">
+                  Complete timeline of all analysed videos with clickable links to workspace and job audit trails.
                 </p>
               </Link>
 

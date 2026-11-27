@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
   Video,
+  History,
   MonitorPlay,
   ClipboardList,
   SlidersHorizontal,
@@ -28,6 +29,12 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({ isOpen = false, onClose 
       label: "Video Library",
       subtitle: "Ingestion & Assets",
       icon: Video,
+    },
+    {
+      to: ROUTES.HISTORY,
+      label: "Processing History",
+      subtitle: "Analysed Videos & Results",
+      icon: History,
     },
     {
       to: "/workspace/preview",

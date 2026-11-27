@@ -41,6 +41,29 @@ router = APIRouter(prefix="/jobs", tags=["Jobs"])
 _job_create_lock = threading.Lock()
 
 
+@router.get(
+    "",
+    response_model=List[ProcessingJobResponseSchema],
+    summary="List all processing jobs with optional status filter",
+)
+def list_jobs(
+    status_filter: Optional[str] = None,
+    limit: int = 100,
+    offset: int = 0,
+    db: Session = Depends(get_db_session),
+) -> List[ProcessingJobResponseSchema]:
+    """
+    Returns a paginated list of all processing jobs, ordered by creation time descending.
+    Optionally filtered by status (QUEUED, PROCESSING, COMPLETED, FAILED).
+    """
+    repo = SQLAlchemyJobRepository(db)
+    all_jobs = repo.list_jobs(limit=limit, offset=offset)
+    if status_filter:
+        status_upper = status_filter.upper()
+        all_jobs = [j for j in all_jobs if j.status.value == status_upper or j.status == status_upper]
+    return all_jobs
+
+
 @router.post(
     "",
     response_model=ProcessingJobResponseSchema,

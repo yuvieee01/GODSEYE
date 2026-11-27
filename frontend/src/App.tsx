@@ -8,6 +8,7 @@ import { PageContainer } from "./components/layout/PageContainer";
 
 import { OperationsOverviewPage } from "./pages/OperationsOverviewPage";
 import { VideoLibraryPage } from "./pages/VideoLibraryPage";
+import { HistoryPage } from "./pages/HistoryPage";
 import { AnalysisWorkspacePage } from "./pages/AnalysisWorkspacePage";
 import { JobDetailsPage } from "./pages/JobDetailsPage";
 import { SettingsPage } from "./pages/SettingsPage";
@@ -43,6 +44,7 @@ export const App: React.FC = () => {
                 <Route path={ROUTES.ROOT} element={<Navigate to={ROUTES.OPERATIONS} replace />} />
                 <Route path={ROUTES.OPERATIONS} element={<OperationsOverviewPage />} />
                 <Route path={ROUTES.VIDEOS} element={<VideoLibraryPage />} />
+                <Route path={ROUTES.HISTORY} element={<HistoryPage />} />
                 <Route path={ROUTES.WORKSPACE} element={<AnalysisWorkspacePage />} />
                 <Route path={ROUTES.WORKSPACE_DEFAULT} element={<AnalysisWorkspacePage />} />
                 <Route path={ROUTES.JOB_DETAILS} element={<JobDetailsPage />} />

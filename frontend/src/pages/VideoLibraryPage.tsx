@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   Video,
@@ -7,6 +8,7 @@ import {
   RotateCw,
   AlertTriangle,
   Calendar,
+  History,
 } from "lucide-react";
 import { PageHeader } from "../components/common/PageHeader";
 import { SectionCard } from "../components/common/SectionCard";
@@ -20,6 +22,7 @@ import { videoService } from "../services/videoService";
 import { VideoMetadata } from "../types/video";
 import { formatBytes, formatDuration } from "../core/validation";
 import { APP_CONFIG } from "../core/config";
+import { ROUTES } from "../core/routes";
 
 export const VideoLibraryPage: React.FC = () => {
   const queryClient = useQueryClient();
@@ -54,6 +57,15 @@ export const VideoLibraryPage: React.FC = () => {
         subtitle="Catalog of raw traffic camera video assets and streamed multipart ingestion"
         actions={
           <div className="flex items-center gap-2">
+            <Link to={ROUTES.HISTORY}>
+              <Button
+                variant="outline"
+                size="sm"
+                icon={<History className="w-3.5 h-3.5 text-cyan-400" />}
+              >
+                View History
+              </Button>
+            </Link>
             <Button
               variant="outline"
               size="sm"

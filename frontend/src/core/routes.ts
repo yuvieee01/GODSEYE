@@ -6,6 +6,7 @@ export const ROUTES = {
   ROOT: "/",
   OPERATIONS: "/operations",
   VIDEOS: "/videos",
+  HISTORY: "/history",
   WORKSPACE: "/workspace/:jobId",
   WORKSPACE_DEFAULT: "/workspace",
   JOB_DETAILS: "/jobs/:jobId",

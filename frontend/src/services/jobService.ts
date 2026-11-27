@@ -7,6 +7,11 @@ import { ProcessingJob, ProcessingJobCreate, JobArtifactsResponse } from "../typ
 import { JobResults, TrafficAnalyticsSummary } from "../types/telemetry";
 
 export const jobService = {
+  async listJobs(statusFilter?: string): Promise<ProcessingJob[]> {
+    const params = statusFilter ? `?status_filter=${encodeURIComponent(statusFilter)}` : "";
+    return apiClient.get<ProcessingJob[]>(`/jobs${params}`);
+  },
+
   async getJob(jobId: string): Promise<ProcessingJob> {
     return apiClient.get<ProcessingJob>(`/jobs/${encodeURIComponent(jobId)}`);
   },
